@@ -32,6 +32,11 @@ class ScheduledTask extends EventEmitter {
         this.stop = () => {
             scheduler.stop();
         };
+        
+        this.execute = () => {
+            let result = task.execute();
+            this.emit('task-done', result);
+        }
     }
 }
 
